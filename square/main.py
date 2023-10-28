@@ -5,11 +5,11 @@ from functools import partial
 
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C
 
-WHEEL_DIAMETER = 5.6
-AXIS = 11.8
-AXIS_CIRCUMFERENCE = AXIS * math.pi
-FORWARD_SPEED = 25
-TURN_SPEED = 10
+WHEEL_DIAMETER_IN_CENTIMETRES = 5.6
+AXLE_IN_CENTIMETERS = 11.8
+AXLE_CIRCUMFERENCE_IN_CENTIMETERS = AXLE_IN_CENTIMETERS * math.pi
+MOTOR_SPEED_PERCENT = 25
+MOTOR_SPEED_PERCENT_WHEN_TURNING = 10
 
 left_motor = LargeMotor(OUTPUT_B)
 right_motor = LargeMotor(OUTPUT_C)
@@ -24,19 +24,19 @@ def move_right_motor(speed: float, rotations: float, block=True, brake=True):
 
 
 def move_forward(speed: float, centimeters: float, brake=True):
-    rotations = centimeters / (WHEEL_DIAMETER * math.pi)
+    rotations = centimeters / (WHEEL_DIAMETER_IN_CENTIMETRES * math.pi)
     move_left_motor(speed=speed, rotations=rotations, block=False, brake=brake)
     move_right_motor(speed=speed, rotations=rotations, brake=brake)
 
 
 def turn(speed: float, degrees: float):
-    rotations = (AXIS_CIRCUMFERENCE * degrees / 360) / (WHEEL_DIAMETER * math.pi)
+    rotations = (AXLE_CIRCUMFERENCE_IN_CENTIMETERS * degrees / 360) / (WHEEL_DIAMETER_IN_CENTIMETRES * math.pi)
     move_left_motor(speed=speed, rotations=-rotations, block=False)
     move_right_motor(speed=speed, rotations=rotations)
 
 
-move_forward_one_meter = partial(move_forward, speed=FORWARD_SPEED, centimeters=100)
-turn_left_90_degrees = partial(turn, speed=TURN_SPEED, degrees=90)
+move_forward_one_meter = partial(move_forward, speed=MOTOR_SPEED_PERCENT, centimeters=100)
+turn_left_90_degrees = partial(turn, speed=MOTOR_SPEED_PERCENT_WHEN_TURNING, degrees=90)
 
 
 def draw_one_meter_square():
