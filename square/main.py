@@ -20,11 +20,11 @@ def move_forward(distance_cm: float, speed=MOTOR_SPEED_PERCENT, brake=True):
     move_differential.on_for_distance(distance_mm=distance_cm * 10, speed=speed, brake=brake)
 
 
-def turn_left(degrees: float, speed=MOTOR_SPEED_PERCENT, brake=True):
+def turn_left(degrees: float, speed=MOTOR_SPEED_PERCENT_WHEN_TURNING, brake=True):
     move_differential.turn_left(degrees=degrees, speed=speed, brake=brake)
 
 
-def turn_right(degrees: float, speed=MOTOR_SPEED_PERCENT, brake=True):
+def turn_right(degrees: float, speed=MOTOR_SPEED_PERCENT_WHEN_TURNING, brake=True):
     move_differential.turn_right(degrees=degrees, speed=speed, brake=brake)
 
 
