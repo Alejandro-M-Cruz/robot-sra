@@ -3,7 +3,7 @@
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C, MoveDifferential
 from ev3dev2.wheel import EV3EducationSetTire
 
-WHEEL_DISTANCE_MM = 118
+WHEEL_DISTANCE_MM = 92
 MOTOR_SPEED_PERCENT = 40
 MOTOR_SPEED_PERCENT_WHEN_TURNING = 15
 
