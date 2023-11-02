@@ -3,7 +3,7 @@
 from ev3dev2.motor import LargeMotor, OUTPUT_B, OUTPUT_C, MoveDifferential
 from ev3dev2.wheel import EV3EducationSetTire
 
-WHEEL_DISTANCE_MM = 92
+WHEEL_DISTANCE_MM = 118
 MOTOR_SPEED_PERCENT = 40
 MOTOR_SPEED_PERCENT_WHEN_TURNING = 15
 
@@ -28,11 +28,17 @@ def turn_right(degrees: float, speed=MOTOR_SPEED_PERCENT_WHEN_TURNING, brake=Tru
     move_differential.turn_right(degrees=degrees, speed=speed, brake=brake)
 
 
-def move_square(side_length_cm: float):
-    for _ in range(4):
+def move_square(side_length_cm: float, laps: int = 1, direction: str = 'clockwise'):
+    for _ in range(4 * laps):
         move_forward(distance_cm=side_length_cm)
-        turn_left(degrees=90)
+        if direction == 'clockwise':
+            turn_right(degrees=90)
+        elif direction == 'counterclockwise':
+            turn_left(degrees=90)
+        else:
+            raise ValueError('direction must be either clockwise or counterclockwise')
 
 
 if __name__ == '__main__':
-    move_square(side_length_cm=100)
+    move_square(side_length_cm=100, laps=10)
+    move_square(side_length_cm=100, laps=10, direction='counterclockwise')
