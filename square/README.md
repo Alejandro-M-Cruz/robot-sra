@@ -217,5 +217,5 @@ if __name__ == '__main__':
 
 Al realizar recorridos en forma de cuadrado, 10 en sentido horario y otros 10 en sentido antihorario, la conclusión es clara. Existe error sistemático debido a la imprecisión de la medida de la distancia entre las ruedas. Dado que la superficie de apoyo de las ruedas es considerablemente ancha, es muy difícil medir exactamente qué distancia existe entre dichas superficies. Es por ello que, al girar el robot sobre sí mismo, este efectúa la rotación con un ángulo aproximadamente un 10% menor al deseado, que es de 90º. En el primer giro no es demasiado apreciable, pero al acumularse en los cuatro giros del cuadrado, el error es muy claramente perceptible. 
 \
-&ensp;No obstante, todo apunta a que el error de la medida del diámetro de las ruedas es sumamente bajo, puesto que el robot realiza el movimiento hacia delante en una recta casi perfecta y recorre una distancia muy próxima a 1 metro.
+&nbsp;&nbsp;&nbsp;&nbsp;No obstante, todo apunta a que el error de la medida del diámetro de las ruedas es sumamente bajo, puesto que el robot realiza el movimiento hacia delante en una recta casi perfecta y recorre una distancia muy próxima a 1 metro.
 
